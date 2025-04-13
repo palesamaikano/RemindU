@@ -1,0 +1,19 @@
+{% load static %}
+<div class="right-panel">
+    <div class="user">
+        <img src="{% static 'media/image1.jpg' %}" alt="Avatar" width="40" style="border-radius: 50%;">
+        <div>
+            <strong>Palesa Molatedi</strong><br>
+            Diploma in ICT, 3rd Year
+        </div>
+    </div>
+
+    {{ calendar|safe }}
+
+    <div class="reminders">
+        <h3>Reminders</h3>
+        {% for reminder in reminders %}
+        <div class="reminder">{{ reminder.title }} - {{ reminder.time }}</div>
+        {% endfor %}
+    </div>
+</div>

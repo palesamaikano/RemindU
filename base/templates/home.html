@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-home">
+    {% include "includes/sidebar.html" %}
+    <div class="main-content">
+        <!-- Left Section -->
+        <div class="main">
+            <div class="header">
+                <h1>Welcome! Palesa</h1>
+                <p>An ultimate reminder for your everyday school life.</p>
+            </div>
+
+            <div class="test-reminders">
+                <h2>Test Reminders</h2>
+                <div class="list">
+                    {% for day in days_of_week %}
+                    <div class="{% if forloop.first %}highlight{% else %}days{% endif %}">{{ day }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="bottom-section">
+                <div class="classes">
+                    <h3>Classes Today</h3>
+                    {% for class in classes %}
+                    <div class="class">
+                        {{ class.title }}<br>
+                        {{ class.start_time }} - {{ class.end_time }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="todo">
+                    <h3>To-Do Lists</h3>
+                    {% for todo in todos %}
+                    <div>
+                        <input type="checkbox" {% if todo.is_done %}checked{% endif %}>
+                        {{ todo.task }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        {% include "includes/right_panel.html" %}
+    </div>
+</div>
+{% endblock %}

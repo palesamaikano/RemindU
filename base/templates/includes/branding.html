@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="branding">
+    {% if light %}
+        <img src="{% static 'media/logo.png' %}" alt="App Logo" width="60" height="60">
+    {% else %}
+        <img src="{% static 'media/logo-white.png' %}" alt="App Logo" width="60" height="60">
+    {% endif %}
+    
+    <div class="brand-text">
+        <h1 class="{% if light %}app-name-light{% else %}app-name{% endif %}">RemindU</h1>
+        <p class="{% if light %}slogan-light{% else %}slogan{% endif %}">Stay on track, stay productive!</p>
+    </div>
+</div>

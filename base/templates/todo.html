@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Reminders{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/reminders.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-home">
+    {% include "includes/sidebar.html" %}
+    <div class="main-content">
+        <div class="main">
+            <div class="header">
+                <h1>Todo Lists</h1>
+                <button class="add-btn">+ New Todo</button>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Todos</button>
+                <button class="filter-btn">Lists</button>
+            </div>
+            <div class="reminders-list">
+                {% for reminder in reminders %}
+                <div
+                    class="reminder-card {% if reminder.priority == 'high' %}high-priority{% elif reminder.priority == 'medium' %}medium-priority{% else %}low-priority{% endif %}">
+                    <div class="reminder-top">
+                        <h3>{{ reminder.title }}</h3>
+                        <div class="reminder-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <p class="reminder-desc">{{ reminder.description }}</p>
+                    <div class="reminder-meta">
+                        <span class="date">📅 {{ reminder.due_date }}</span>
+                        <span class="time">⏰ {{ reminder.time }}</span>
+                        <span class="category">📂 {{ reminder.category }}</span>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="empty-state">
+                    <img src="{% static 'media/empty-reminders.png' %}" alt="No reminders" width="450">
+                    <p>You don't have any task yet</p>
+                    <button class="add-btn">Create Your First Task</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Right Panel -->
+        {% include "includes/right_panel.html" %}
+    </div>
+</div>
+{% endblock %}

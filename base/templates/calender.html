@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ month }} {{ year }} Calendar</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .today {
+            background-color: #ffeeba;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ month }} {{ year }}</h2>
+    <div>
+        {{ calendar|safe }}
+    </div>
+</body>
+</html>

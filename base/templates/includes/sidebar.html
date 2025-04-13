@@ -1,0 +1,32 @@
+{% load static %}
+<div class="sidebar">
+    <div class="branding">
+        <img src="{% static 'media/logo-white.png' %}" alt="Logo" width="60">
+        <div class="brand-text">
+            <h1 class="app-name-light">RemindU</h1>
+            <p class="slogan-light">Stay on track, stay productive!</p>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="menu-item">
+            <a href="{% url 'base:home' %}">
+                <span>🏠</span> Home
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="{% url 'base:reminders' %}">
+                <span>📧</span> Reminders
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="{% url 'base:todo' %}">
+                <span>📁</span> Todo
+            </a>
+        </div>
+        <div class="menu-item">
+            <a>
+                <span>⚙</span> Settings
+            </a>
+        </div>
+    </div>
+</div>

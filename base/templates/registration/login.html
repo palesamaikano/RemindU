@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container login-bg">
+  <div class="form-wrap">
+    <div class="branding">
+      <img src="{% static 'media/logo.png' %}" alt="Logo" width="60">
+      <div class="brand-text">
+        <h1 class="app-name">RemindU</h1>
+        <p class="slogan">Stay on track, stay productive!</p>
+      </div>
+    </div>
+    <h3>Login</h3>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit">Submit</button>
+    </form>
+    <a class="signup-link" href="{% url 'base:authView' %}">Signup</a>
+  </div>
+</div>
+{% endblock %}

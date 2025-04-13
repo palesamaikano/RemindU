@@ -1,0 +1,122 @@
+/* Reminders Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-btn {
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #28c76f;
+}
+
+/* Filter Buttons */
+/* Filter Buttons Container */
+.filters {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping if needed */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 10px; /* Add padding bottom to ensure space below filters */
+}
+
+/* Individual Filter Button */
+.filter-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #1DB954;
+    color: white;
+}
+
+/* Reminders List & Cards */
+.reminders-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reminder-card {
+    background: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.reminder-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.reminder-top h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.reminder-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+/* Priority Color Borders */
+.high-priority {
+    border-left: 5px solid #ff4d4f;
+}
+
+.medium-priority {
+    border-left: 5px solid #ffc107;
+}
+
+.low-priority {
+    border-left: 5px solid #40c057;
+}
+
+.reminder-desc {
+    margin: 6px 0 10px;
+    color: #555;
+}
+
+.reminder-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+}
+
+.empty-state p {
+    margin: 10px 0;
+    font-size: 16px;
+}
