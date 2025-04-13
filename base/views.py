@@ -78,7 +78,7 @@ def authView(request):
             return redirect("base:login")
     else:
         form = CustomUserCreationForm()
-    return render(request, "base/signup.html", {"form": form})
+    return render(request, "signup.html", {"form": form})
 
 def reminders_view(request):
     today = date.today()

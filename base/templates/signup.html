@@ -1,96 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Sign Up - RemindU{% endblock %}
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/auth.css' %}">
-{% endblock %}
+{% block title %}Register{% endblock %}
 
 {% block content %}
-<div class="auth-container">
-    <div class="auth-box">
-        <div class="auth-left">
-            <div class="auth-header">
-                {% include "branding.html" with light=True %}
-                <h2>Create Account</h2>
-                <p>Join RemindU to boost your productivity</p>
-            </div>
-            
-            <form class="auth-form" method="post">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="first_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="last_name" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                    <div class="password-strength">
-                        <div class="strength-meter">
-                            <div class="strength-segment"></div>
-                            <div class="strength-segment"></div>
-                            <div class="strength-segment"></div>
-                            <div class="strength-segment"></div>
-                        </div>
-                        <span class="strength-text">Password strength</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirm_password" required>
-                </div>
-                <div class="terms-checkbox">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-                </div>
-                <button type="submit" class="auth-btn">Create Account</button>
-                
-                <div class="auth-divider">
-                    <span>OR</span>
-                </div>
-                
-                <div class="social-auth">
-                    <button type="button" class="google-btn">
-                        <img src="{% static 'media/google-icon.png' %}" alt="Google">
-                        Sign up with Google
-                    </button>
-                    <button type="button" class="microsoft-btn">
-                        <img src="{% static 'media/microsoft-icon.png' %}" alt="Microsoft">
-                        Sign up with Microsoft
-                    </button>
-                </div>
-            </form>
-            
-            <div class="auth-footer">
-                <p>Already have an account? <a href="{% url 'signin' %}">Sign In</a></p>
-            </div>
-        </div>
-        
-        <div class="auth-right">
-            <div class="auth-image">
-                <img src="{% static 'media/signup-illustration.svg' %}" alt="Sign Up">
-                <div class="features-list">
-                    <h3>Why join RemindU?</h3>
-                    <ul>
-                        <li>Never miss an important deadline again</li>
-                        <li>Keep track of all your classes and assignments</li>
-                        <li>Organize tasks with smart to-do lists</li>
-                        <li>Get timely notifications for upcoming events</li>
-                        <li>Seamless calendar integration</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div class="container login-bg">
+  <div class="form-wrap">
+    <div class="branding">
+      <img src="{% static 'media/logo.png' %}" alt="Logo" width="60">
+      <div class="brand-text">
+        <h1 class="app-name">RemindU</h1>
+        <p class="slogan">Stay on track, stay productive!</p>
+      </div>
     </div>
+    <h3>Login</h3>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit">Register</button>
+    </form>
+    <a class="signup-link" >Login</a>
+  </div>
 </div>
 {% endblock %}
